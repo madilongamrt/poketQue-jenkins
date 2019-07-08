@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>front10toQue.html</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1>Welcome to Pocket Queue System</h1>
+    <form>
+        <fieldset>
+            <legend>Queuing Entry</legend>
+            <p>
+                <label>Reference No:</label>
+                
+                <script type="text/javascript"></script>
+
+<script type="text/javascript">
+    function getAll(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("que").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("POST", "http://localhost:8080/api/appointment/add", true);
+        xhttp.send();
+    }
+</script>
+
+<script type="text/javascript">
+	function getRef() {
+   		 return document.getElementById("mytext").value;
+	};
+
+    function MoveAppointmentQueuePosition() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("que").innerHTML = this.responseText;
+
+            }
+                 alert("Reference not found !!!!");
+            }
+        xhttp.open("POST", "http://localhost:8080/api/appointment/add", true);
+        xhttp.send();
+        };
+
+</script><script type="/javascript">
+ function getBranchAddress(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("dropdown").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("POST", "http://localhost:8080/api/branch/retrieveBranchAddresses", true);
+        xhttp.send();
+    }
+ </script>
+        <input type="text" id="mytext"/>
+            <p>
+            </p>
+            <label>Branch No:</label>
+            <body  önLoad="getBranchAddress()">
+
+            <form name="Branches" >
+                <select id="dropdown" name="dropdown" onclick="getBranchAddress()" ></select>
+            </form>
+
+            </body>
+
+             </p>
+            <button type="button" onclick="getAll()">Next</button>
+            <button type="button" onclick= "MoveAppointmentQueuePosition()">Redeem</button>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Queue Line</legend>
+            <ul>
+                <li id="que"></li>
+            </ul>
+        </fieldset>
+    </form>
+</body>
+</html>
